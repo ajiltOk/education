@@ -1,7 +1,31 @@
-import { Card } from "./components/Card/Card";
+import { useState, useEffect } from "react";
+import { CardList } from "./components/CardList/CardList";
+import { IFetchData } from "./types/data";
 
 const App: React.FC = () => {
-  return <Card />;
+  const [data, setData] = useState<IFetchData | undefined>(undefined); 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://bgaa.by/test');
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData(); 
+  }, []);
+
+  console.log(data)
+
+  return (
+    <>
+      {data ? <CardList data={ data } /> : <div>Loading...</div>}
+      <button>Сохранить</button>
+    </>
+  );
 };
 
 export { App };
