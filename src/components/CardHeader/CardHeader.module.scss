@@ -1,0 +1,20 @@
+.grid-container-header {
+  display: grid;
+  grid-template-rows: auto auto; /* определяем две строки с автоматической высотой */
+  grid-gap: 10px; /* задаем промежуток между ячейками */
+}
+
+.subgrid {
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* определяем две строки с равной долей свободного пространства */
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* задаем четыре равные по ширине колонки */
+  grid-gap: 10px; /* задаем промежуток между ячейками */
+}
+
+.header {
+  padding: 10px;
+  text-align: center;
+}

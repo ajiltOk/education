@@ -1,44 +1,37 @@
 export interface IFetchData {
-  data: ICards[],
-  teachers: ITeachers[]
+  data: ICardsData[];
+  teachers: ITeachers[];
 }
 
-interface ICards {
-  subjectName: string,
-  course: number,
-  semestr: number,
-  studentsNumber: number,
-  groupName: string,
-  lecturesHours: number,
-  laboratoryHours: number,
-  practicHours: number,
-  seminarHours: number,
-  exam:false,
-  offset:true,
-  additionalInfo: string,
-  countPodgroups: number,
-  uniqueId: string,
-  podgroups?:[
-    {countStudents: number,
-      laboratoryTeacher: string,
-      lectureTeacher: string,
-      practiceTeacher: string,
-      seminarTeacher: string,
-      examTeacher: string,
-      offsetTeacher: string
-    },
-    {countStudents: number,
-      laboratoryTeacher: string,
-      lectureTeacher: string,
-      practiceTeacher: string,
-      seminarTeacher: string,
-      examTeacher: string,
-      offsetTeacher: string
-    }
-  ]
+export interface ICardsData {
+  subjectName: string;
+  course: string;
+  semestr: string;
+  studentsNumber: string;
+  groupName: string;
+  lecturesHours: string;
+  laboratoryHours: string;
+  practicHours: string;
+  seminarHours: string;
+  exam: boolean;
+  offset: boolean;
+  additionalInfo: string;
+  countPodgroups: string;
+  uniqueId: string;
+  podgroups: IPodgroups[];
 }
 
 interface ITeachers {
-  id: number,
-  name: string
+  id: number;
+  name: string;
+}
+
+interface IPodgroups {
+  countStudents: string;
+  laboratoryTeacher: string;
+  lectureTeacher: string;
+  practiceTeacher: string;
+  seminarTeacher: string;
+  examTeacher: string;
+  offsetTeacher: string;
 }

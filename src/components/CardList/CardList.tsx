@@ -1,12 +1,22 @@
 import { Card } from "../Card/Card";
 import { IFetchData } from "../../types/data";
 
-interface ICardList extends IFetchData {
-  
+interface ICardList {
+  dataCards: IFetchData;
 }
 
 const CardList: React.FC<ICardList> = (props) => {
-  return <div></div>;
+  return (
+    <ul>
+      {props.dataCards.data.map((card) => {
+        return (
+          <li key={card.uniqueId}>
+            <Card card={card} />
+          </li>
+        );
+      })}
+    </ul>
+  );
 };
 
 export { CardList };
